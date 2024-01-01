@@ -15,7 +15,8 @@ fn main() {
     // _increasing_cube(length);
     // _triangle(length);
     // _increasing_triangle(length);
-    increasing_triangle_2(length);
+    // _increasing_triangle_2(length);
+    increasing_row_char_cube(length);
 }
 
 fn _solid_cube(l: u32) -> i32 {
@@ -60,6 +61,22 @@ fn _increasing_cube(l: u32) -> i32 {
     return 0;
 }
 
+// for l = 4 => 
+// A A A A
+// B B B B
+// C C C C
+// D D D D
+fn increasing_row_char_cube(l: u32) -> i32 {
+    for i in 0..l {
+        for _j in 0..l {
+            let ch = char::from_u32('A' as u32 + i ).expect("Invalid character");
+            print!("{} ", ch)
+        }
+        println!("")
+    }
+    return 0;
+}
+
 
 // for l = 4 => 
 //  1
@@ -82,7 +99,7 @@ fn _increasing_triangle(l: u32) -> i32 {
 //  2 3
 //  4 5 6
 //  7 8 9 10
-fn increasing_triangle_2(l: u32) -> i32 {
+fn _increasing_triangle_2(l: u32) -> i32 {
     for i in 1..l+1 {
         let start = (i * (i - 1 )) / 2 + 1;
         for j in 0..i {
