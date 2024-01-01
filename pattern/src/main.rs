@@ -12,13 +12,30 @@ fn main() {
         }
     };
     // solid_cube(length);
-    increasing_rows_columns(length);
+    // increasing_rows_columns(length);
+    triangle(length);
 }
 
-fn solid_cube(l: u32) -> i32 {
+fn _solid_cube(l: u32) -> i32 {
     for _i in 0..l {
         for _j in 0..l {
             print!("#")
+        }
+        println!("")
+    }
+    return 0;
+}
+
+
+// for l = 4 => 
+//  #
+//  # #
+//  # # #
+//  # # # #
+fn triangle(l: u32) -> i32 {
+    for i in 1..l+1 {
+        for _j in 0..i {
+            print!("# ")
         }
         println!("")
     }
@@ -31,7 +48,7 @@ fn solid_cube(l: u32) -> i32 {
 // 5 6 7 8
 // 9 10 11 12
 // 13 14 15 16
-fn increasing_rows_columns(l: u32) -> i32 {
+fn _increasing_rows_columns(l: u32) -> i32 {
     for i in 0..l {
         for j in 0..l {
             print!("{} ", j + (l * i) + 1)
@@ -40,3 +57,6 @@ fn increasing_rows_columns(l: u32) -> i32 {
     }
     return 0;
 }
+
+
+
