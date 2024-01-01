@@ -16,7 +16,9 @@ fn main() {
     // _triangle(length);
     // _increasing_triangle(length);
     // _increasing_triangle_2(length);
-    increasing_row_char_cube(length);
+    // _increasing_row_char_cube(length);
+    // _increasing_char_cube(length);
+    pyramid(length);
 }
 
 fn _solid_cube(l: u32) -> i32 {
@@ -66,10 +68,26 @@ fn _increasing_cube(l: u32) -> i32 {
 // B B B B
 // C C C C
 // D D D D
-fn increasing_row_char_cube(l: u32) -> i32 {
+fn _increasing_row_char_cube(l: u32) -> i32 {
     for i in 0..l {
         for _j in 0..l {
             let ch = char::from_u32('A' as u32 + i ).expect("Invalid character");
+            print!("{} ", ch)
+        }
+        println!("")
+    }
+    return 0;
+}
+
+// for l = 4 => 
+// A B C D
+// E F G H
+// I J K L
+// M N O P
+fn _increasing_char_cube(l: u32) -> i32 {
+    for i in 0..l {
+        for j in 0..l {
+            let ch = char::from_u32('A' as u32 + j + (i * l) ).expect("Invalid character");
             print!("{} ", ch)
         }
         println!("")
@@ -109,4 +127,32 @@ fn _increasing_triangle_2(l: u32) -> i32 {
     }
     return 0;
 }
+
+// for l = 4 => 
+//        1
+//      1 2 1 
+//    1 2 3 2 1 
+//  1 2 3 4 3 2 1 
+fn pyramid(l: u32) -> i32 {
+    for i in 1..l+1 {
+        let mut spaces = l - i;
+        let mut j = 0;
+        while spaces > 0 {
+            print!("  ");
+            spaces -= 1;
+        }
+        while j != i{
+            j += 1;
+            print!("{} ", j);
+        }
+        while j > 1 {
+            print!("{} ", j-1);
+            j -= 1;
+        }
+
+        println!("")
+    }
+    return 0;
+}
+
 
